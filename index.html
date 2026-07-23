@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מסלול העסקים · גאנט שיווק 2026/27</title>
 <meta name="description" content="תוכנית שיווק רבעונית ל־14 הכשרות קצרות לבעלי עסקים ומנהלים, יולי 2026 עד יוני 2027.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -84,23 +86,17 @@ h1,h2,h3,h4,.num{font-family:"Heebo",sans-serif}
   max-width:1400px;margin:0 auto;padding-inline:28px;height:100%;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
-.mark{display:flex;align-items:center;gap:11px;min-width:0}
-.mark .glyph{
-  width:26px;height:26px;flex:none;border-radius:var(--r-tag);
-  background:var(--accent);display:grid;place-items:center;
-}
-.mark .glyph i{display:block;width:9px;height:9px;background:#0A0B0D;border-radius:2px}
+.mark{display:flex;align-items:center;gap:13px;min-width:0;text-decoration:none}
+.logo{height:40px;width:auto;flex:none;display:block}
+.topbar .logo-on-light{display:none}
+.topbar.on-light .logo-on-dark{display:none}
+.topbar.on-light .logo-on-light{display:block}
 .mark b{
   font-family:"Heebo",sans-serif;font-weight:800;font-size:14px;letter-spacing:-.01em;
   color:var(--dark-txt);white-space:nowrap;transition:color .3s var(--ease);
+  padding-inline-start:13px;border-inline-start:1px solid var(--dark-line);
 }
-.topbar.on-light .mark b{color:var(--ink)}
-.mark s{
-  text-decoration:none;font-size:12.5px;color:var(--dark-txt-3);
-  white-space:nowrap;padding-inline-start:11px;
-  border-inline-start:1px solid var(--dark-line);
-}
-.topbar.on-light .mark s{color:var(--ink-3);border-inline-start-color:var(--line)}
+.topbar.on-light .mark b{color:var(--ink);border-inline-start-color:var(--line)}
 .tnav{display:flex;align-items:center;gap:26px}
 .tnav a{
   font-size:13.5px;color:var(--dark-txt-2);text-decoration:none;white-space:nowrap;
@@ -119,7 +115,8 @@ h1,h2,h3,h4,.num{font-family:"Heebo",sans-serif}
 .pillbtn:active{transform:scale(.97)}
 .topbar.on-light .pillbtn{background:var(--ink);color:#fff}
 .topbar.on-light .pillbtn:hover{background:#000}
-@media(max-width:900px){.tnav{display:none}.mark s{display:none}}
+@media(max-width:900px){.tnav{display:none}}
+@media(max-width:620px){.mark b{display:none}.logo{height:34px}}
 
 /* ============================================================
    COVER
@@ -362,10 +359,11 @@ h1 .soft{
 .qcell p{font-size:14px;line-height:1.62;color:var(--ink-2)}
 
 .foot{
-  border-top:1px solid var(--line);margin-top:78px;padding-top:26px;
-  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:78px;padding-top:28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
   font-size:12.5px;color:var(--ink-3);
 }
+.foot-logo{height:38px;width:auto;display:block}
 
 /* ============================================================
    MOTION  (MOTION_INTENSITY 4)
@@ -394,12 +392,17 @@ h1 .soft{
    PRINT
    ============================================================ */
 @media print{
-  .topbar,.netwrap,.pillbtn{display:none!important}
+  .netwrap,.pillbtn,.tnav{display:none!important}
   .board::after{display:none!important}
   body{background:#fff;font-size:11px}
   :root{--colw:33px;--namew:200px}
-  .hero{min-height:auto;padding-block:26px 22px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .band,.qhead .qc,.card::before,.nowline{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  /* the bar becomes a static masthead so the logo lands on the PDF */
+  .topbar{position:static;height:auto;background:var(--dark)!important;backdrop-filter:none}
+  .topbar-in{padding-block:12px}
+  .topbar .logo-on-light{display:none!important}
+  .topbar .logo-on-dark{display:block!important}
+  .hero{min-height:auto;padding-block:26px 22px}
+  .topbar,.hero,.band,.qhead .qc,.card::before,.nowline{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .scroller{overflow:visible}
   .sec{padding-top:30px;break-inside:avoid}
   .card,.note,.qcell{break-inside:avoid}
@@ -418,11 +421,11 @@ h1 .soft{
 
 <header class="topbar" id="topbar">
   <div class="topbar-in">
-    <div class="mark">
-      <span class="glyph" aria-hidden="true"><i></i></span>
+    <a class="mark" href="#top">
+      <img class="logo logo-on-dark"  src="logo-light.png" alt="היחידה ללימודי חוץ · Oasis Capital Israel" width="579" height="110">
+      <img class="logo logo-on-light" src="logo-dark.png"  alt="" aria-hidden="true" width="579" height="110">
       <b>מסלול העסקים</b>
-      <s>היחידה ללימודי חוץ · המחלקה העסקית</s>
-    </div>
+    </a>
     <nav class="tnav">
       <a href="#gantt">הגאנט</a>
       <a href="#courses">ההכשרות</a>
@@ -433,7 +436,7 @@ h1 .soft{
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="netwrap" aria-hidden="true"><svg id="net" preserveAspectRatio="xMidYMid slice"></svg></div>
   <div class="hero-in">
     <div class="badge rise"><b>תוכנית שיווק רבעונית</b> יולי 2026 עד יוני 2027</div>
@@ -543,8 +546,8 @@ h1 .soft{
   </section>
 
   <footer class="foot">
-    <span>היחידה ללימודי חוץ · המחלקה העסקית</span>
-    <span>מסמך עבודה פנימי</span>
+    <img class="foot-logo" src="logo-dark.png" alt="היחידה ללימודי חוץ · Oasis Capital Israel" width="579" height="110">
+    <span>המחלקה העסקית · מסמך עבודה פנימי</span>
   </footer>
 
 </div>

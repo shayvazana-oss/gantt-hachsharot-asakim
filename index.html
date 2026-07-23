@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מסלול העסקים — גאנט שיווק רבעוני 2026/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101F30;
+  --ink-2:#1D3A56;
+  --ink-3:#4A5D75;
+  --paper:#EDEAE3;
+  --paper-2:#F8F6F1;
+  --line:#D3CEC2;
+  --brass:#B8862B;
+
+  --p-ai:#B8862B;
+  --p-growth:#1F6E63;
+  --p-fin:#8E2B3C;
+  --p-mgmt:#44557A;
+
+  --col:1fr;
+  --namew:270px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Assistant",-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1400px;margin:0 auto;padding:0 22px 90px}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--ink);
+  color:var(--paper-2);
+  margin:0 -22px 34px;
+  padding:44px 22px 34px;
+  border-bottom:5px solid var(--brass);
+}
+.hero-in{max-width:1400px;margin:0 auto}
+.eyebrow{
+  font-family:"Heebo",sans-serif;font-weight:600;font-size:12.5px;
+  letter-spacing:.16em;color:var(--brass);text-transform:none;margin-bottom:12px;
+}
+h1{
+  font-family:"Heebo",sans-serif;font-weight:900;
+  font-size:clamp(30px,4.6vw,52px);line-height:1.04;letter-spacing:-.02em;
+}
+h1 .thin{font-weight:400;color:#9FB0C2;display:block;font-size:.52em;letter-spacing:0;margin-top:12px;line-height:1.4;max-width:52ch}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.16)}
+.stat{padding:18px 30px 4px 30px;border-left:1px solid rgba(255,255,255,.16);flex:1 1 190px}
+.stat:last-child{border-left:0}
+.stat b{font-family:"Heebo",sans-serif;font-weight:900;font-size:34px;color:var(--brass);display:block;line-height:1}
+.stat span{font-size:13.5px;color:#A9B8C8;display:block;margin-top:7px;line-height:1.4}
+
+/* ---------- section headers ---------- */
+.sec{margin-top:52px}
+.sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:20px}
+.sec-h h2{font-family:"Heebo",sans-serif;font-weight:800;font-size:23px;letter-spacing:-.01em}
+.sec-h p{font-size:13.5px;color:var(--ink-3)}
+
+/* ---------- legend ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px}
+.lg{display:flex;align-items:center;gap:8px;font-size:13px;background:var(--paper-2);border:1px solid var(--line);padding:6px 12px;border-radius:2px}
+.swatch{width:34px;height:14px;border-radius:2px;flex:none}
+.sw-warm{background:transparent;border:1.5px dashed var(--ink-3)}
+.sw-reg{background:repeating-linear-gradient(-45deg,var(--ink-3),var(--ink-3) 3px,transparent 3px,transparent 7px);border:1px solid var(--ink-3)}
+.sw-run{background:var(--ink)}
+
+/* ---------- gantt ---------- */
+.scroller{overflow-x:auto;border:1px solid var(--line);background:var(--paper-2);padding-bottom:2px}
+.gantt{min-width:1080px}
+.grow{display:grid;grid-template-columns:var(--namew) repeat(24,var(--col));align-items:stretch}
+
+.qhead .qc{
+  font-family:"Heebo",sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.1em;
+  text-align:center;padding:9px 4px;background:var(--ink);color:var(--paper-2);
+  border-left:1px solid rgba(255,255,255,.2);
+}
+.qhead .qc.first{background:var(--brass);color:#241704}
+.qhead .spacer{background:var(--ink)}
+
+.mhead .mc{
+  font-family:"Heebo",sans-serif;font-weight:600;font-size:12px;text-align:center;
+  padding:8px 2px;background:var(--ink-2);color:#CBD7E3;border-left:1px solid rgba(255,255,255,.14);
+}
+.mhead .spacer{background:var(--ink-2)}
+.mhead .mc.hol{background:#3A2A1E;color:#E0BE84}
+
+.grp{
+  grid-column:1 / -1;display:flex;align-items:center;gap:10px;
+  padding:11px 14px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.grp .dot{width:11px;height:11px;border-radius:50%;flex:none}
+.grp b{font-family:"Heebo",sans-serif;font-weight:800;font-size:14.5px}
+.grp span{font-size:12.5px;color:var(--ink-3)}
+
+.row{display:contents}
+.cell{border-left:1px solid #E4E0D6;border-bottom:1px solid #E4E0D6;min-height:46px;position:relative}
+.cell.hol{background:rgba(184,134,43,.07)}
+.cell.qend{border-left:1px solid var(--ink-3)}
+.nm{
+  border-bottom:1px solid #E4E0D6;border-left:2px solid var(--line);
+  padding:9px 13px;background:var(--paper-2);position:sticky;right:0;z-index:3;
+}
+.nm b{font-family:"Heebo",sans-serif;font-weight:700;font-size:13.5px;display:block;line-height:1.3}
+.nm span{font-size:11.5px;color:var(--ink-3);display:block;margin-top:3px}
+.nm .hrs{font-family:"Heebo",sans-serif;font-weight:700;color:var(--ink);background:#E7E2D6;padding:1px 6px;border-radius:2px;font-size:11px}
+
+.bar{
+  position:absolute;top:50%;transform:translateY(-50%);height:19px;border-radius:2px;
+  z-index:2;display:flex;align-items:center;justify-content:center;
+  font-family:"Heebo",sans-serif;font-size:10.5px;font-weight:700;white-space:nowrap;overflow:hidden;
+}
+.bar.warm{background:transparent;border:1.5px dashed currentColor;opacity:.85}
+.bar.reg{border:1px solid currentColor}
+.bar.run{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">היחידה ללימודי חוץ · המחלקה העסקית</div>
+    <h1>מסלול העסקים
+      <span class="thin">14 הכשרות קצרות של 25–50 שעות לבעלי עסקים ומנהלים, בהפצה דרך התאגדויות העסקים. גאנט שיווק לארבעה רבעונים: יולי 2026 – יוני 2027.</span>
+    </h1>
+    <div class="stats">
+      <div class="stat"><b>700,000+</b><span>עסקים קטנים ובינוניים בישראל — 99.6% מכלל העסקים</span></div>
+      <div class="stat"><b>39%</b><span>מהעסקים כבר משתמשים ב־AI, מול 28% לפני שנה. הקטנים מפגרים</span></div>
+      <div class="stat"><b>5,000 ₪</b><span>סף מספר הקצאה מ־1.6.26. מתחת לרדאר = מע"מ שלא מתקזז</span></div>
+      <div class="stat"><b>3 גלים</b><span>אוקטובר · ינואר · אפריל — אחרי החגים, אחרי סוף שנת המס, לפני הקיץ</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="sec" style="margin-top:8px">
+  <div class="sec-h">
+    <h2>גאנט השיווק</h2>
+    <p>שלוש שכבות לכל קורס: חימום תוכן → פתיחת הרשמה → העברה בפועל</p>
+  </div>
+
+  <div class="legend">
+    <div class="lg"><span class="swatch sw-warm"></span> חימום — תוכן, ניוזלטר ההתאגדות, וובינר טעימה</div>
+    <div class="lg"><span class="swatch sw-reg"></span> הרשמה פתוחה — קמפיין, נחיתה, טלמרקטינג</div>
+    <div class="lg"><span class="swatch sw-run"></span> העברת הקורס</div>
+    <div class="lg"><span class="swatch" style="background:rgba(184,134,43,.22);border:1px solid var(--brass)"></span> חלון מת — חגי תשרי / פסח</div>
+  </div>
+
+  <div class="scroller">
+  <div class="gantt">
+
+    <!-- quarter header -->
+    <div class="grow qhead">
+      <div class="spacer"></div>
+      <div class="qc first" style="grid-column:span 6">רבעון 3 · פיילוט ובנייה</div>
+      <div class="qc" style="grid-column:span 6">רבעון 4 · גל 1 — השקה</div>
+      <div class="qc" style="grid-column:span 6">רבעון 1 · גל 2 — כספים ורגולציה</div>
+      <div class="qc" style="grid-column:span 6">רבעון 2 · גל 3 — צמיחה וייצוא</div>
+    </div>
+
+    <!-- month header -->
+    <div class="grow mhead">
+      <div class="spacer"></div>
+      <div class="mc" style="grid-column:span 2">יולי</div>
+      <div class="mc" style="grid-column:span 2">אוגוסט</div>
+      <div class="mc hol" style="grid-column:span 2">ספטמבר</div>
+      <div class="mc hol" style="grid-column:span 2">אוקטובר</div>
+      <div class="mc" style="grid-column:span 2">נובמבר</div>
+      <div class="mc" style="grid-column:span 2">דצמבר</div>
+      <div class="mc" style="grid-column:span 2">ינואר</div>
+      <div class="mc" style="grid-column:span 2">פברואר</div>
+      <div class="mc" style="grid-column:span 2">מרץ</div>
+      <div class="mc hol" style="grid-column:span 2">אפריל</div>
+      <div class="mc" style="grid-column:span 2">מאי</div>
+      <div class="mc" style="grid-column:span 2">יוני</div>
+    </div>
+
+    <!-- ============ PILLAR: AI ============ -->
+    <div class="grow">
+      <div class="grp"><span class="dot" style="background:var(--p-ai)"></span><b>בינה מלאכותית ואוטומציה</b><span>הפער הכי רחב בין העסקים הגדולים לקטנים — ולכן ההבטחה הכי קלה למכירה</span></div>
+    </div>
+    <div id="lane-ai"></div>
+
+    <!-- ============ PILLAR: GROWTH ============ -->
+    <div class="grow">
+      <div class="grp"><span class="dot" style="background:var(--p-growth)"></span><b>צמיחה, שיווק ומכירות</b><span>לעסק שכבר שורד ורוצה להגדיל מחזור — קורסים עם תוצר מדיד</span></div>
+    </div>
+    <div id="lane-growth"></div>
+
+    <!-- ============ PILLAR: FINANCE ============ -->
+    <div class="grow">
+      <div class="grp"><span class="dot" style="background:var(--p-fin)"></span><b>כספים, רגולציה והישרדות</b><span>הטריגר הכי חזק להרשמה: דדליין חיצוני שהעסק לא שולט בו</span></div>
+    </div>
+    <div id="lane-fin"></div>
+
+    <!-- ============ PILLAR: MGMT ============ -->
+    <div class="grow">
+      <div class="grp"><span class="dot" style="background:var(--p-mgmt)"></span><b>ניהול, אנשים וסיכונים</b><span>הכאב של העסק שגדל מ־5 ל־25 עובדים ואין לו שכבת ניהול</span></div>
+    </div>
+    <div id="lane-mgmt"></div>
+
+  </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-h">
+    <h2>כרטיסי הקורסים</h2>
+    <p>הזווית השיווקית שהצוות מוביל איתה — לא תיאור התוכן</p>
+  </div>
+  <div id="cards"></div>
+</div>
+
+<div class="sec">
+  <div class="sec-h"><h2>מסלול ארגוני</h2><p>לעסקים הגדולים יותר בהתאגדות</p></div>
+  <div id="org"></div>
+</div>
+
+<div class="sec">
+  <div class="sec-h"><h2>הנחות עבודה</h2><p>לאימות מול הכספים והתפעול לפני הפצה</p></div>
+  <div id="assume"></div>
+</div>
+
+</div>
+
+<script>
+const PILLARS = {ai:'var(--p-ai)', growth:'var(--p-growth)', fin:'var(--p-fin)', mgmt:'var(--p-mgmt)'};
+const HOLIDAY = [5,6,7,19]; /* half-month cols shaded: ספט א+ב, אוק א, אפר ב */
+const QEND = [6,12,18];
+
+/* c = [startCol, endCol] over 24 half-month columns. col1 = יולי מחצית א' */
+const COURSES = [
+  /* ---- AI ---- */
+  {p:'ai', n:'AI בעסק — מהיכרות להטמעה', h:30, price:'3,900 / 2,900 ₪', who:'בעל עסק, מנכ״ל, מנהל תפעול',
+   hook:'הרוב כבר משתמשים ב־AI. אתם עוד לא. תוך 30 שעות תצאו עם שלושה תהליכים בעסק שרצים אחרת.',
+   bars:[{t:'warm',c:[5,6]},{t:'reg',c:[6,7]},{t:'run',c:[8,11],l:'מחזור א׳'},
+         {t:'reg',c:[12,13]},{t:'run',c:[14,17],l:'מחזור ב׳'},
+         {t:'reg',c:[19,20]},{t:'run',c:[21,24],l:'מחזור ג׳'}]},
+
+  {p:'ai', n:'AI לשיווק, תוכן ומכירות', h:25, price:'3,200 / 2,400 ₪', who:'בעל עסק ללא מחלקת שיווק',
+   hook:'לייצר חודש שלם של תוכן ביום עבודה אחד — במקום להעסיק פרילנסר ב־4,000 ₪ בחודש.',
+   bars:[{t:'warm',c:[5,6]},{t:'reg',c:[6,7]},{t:'run',c:[8,10],l:'מחזור א׳'},
+         {t:'reg',c:[18,19]},{t:'run',c:[20,22],l:'מחזור ב׳'}]},
+
+  {p:'ai', n:'אוטומציות וסוכני AI ללא קוד', h:40, price:'4,900 / 3,700 ₪', who:'מנהל תפעול, בעל עסק טכנולוגי',
+   hook:'העובד שאתם לא צריכים לגייס. בונים בקורס שני תהליכים אוטומטיים שרצים בעסק שלכם.',
+   bars:[{t:'warm',c:[11,13]},{t:'reg',c:[13,14]},{t:'run',c:[15,19]}]},
+
+  /* ---- GROWTH ---- */
+  {p:'growth', n:'שיווק דיגיטלי מעשי לבעל העסק', h:40, price:'4,900 / 3,700 ₪', who:'עסק שמוציא על פרסום בלי לדעת מה חוזר',
+   hook:'להפסיק לשלם לסוכנות על מה שלא נמדד. יוצאים עם קמפיין חי ולוח מדידה.',
+   bars:[{t:'warm',c:[6,7]},{t:'reg',c:[7,8]},{t:'run',c:[9,13]},
+         {t:'reg',c:[18,20]},{t:'run',c:[21,24],l:'מחזור ב׳'}]},
+
+  {p:'growth', n:'מכירות ומשא ומתן לעסק קטן', h:25, price:'3,200 / 2,400 ₪', who:'בעלים שמוכר בעצמו, איש מכירות יחיד',
+   hook:'רוב העסקים הקטנים לא מפסידים על מוצר — הם מפסידים בשיחה. סקריפט, תמחור והתנגדויות.',
+   bars:[{t:'warm',c:[12,13]},{t:'reg',c:[13,14]},{t:'run',c:[15,17]}]},
+
+  {p:'growth', n:'מסחר אלקטרוני ומרקטפלייסים', h:40, price:'4,900 / 3,700 ₪', who:'קמעונאי, יצרן קטן, מותג פרטי',
+   hook:'ערוץ מכירה שני שלא תלוי בפתיחת החנות. מהקמה ועד המכירה הראשונה בתוך הקורס.',
+   bars:[{t:'warm',c:[17,18]},{t:'reg',c:[18,20]},{t:'run',c:[21,24]}]},
+
+  {p:'growth', n:'ייצוא ופתיחת שווקים בחו״ל', h:35, price:'4,400 / 3,300 ₪', who:'יצרן ונותן שירות עם מוצר בשל',
+   hook:'שוק מקומי מצטמצם. פיזור סיכונים דרך לקוח ראשון בחו״ל — רגולציה, תמחור ולוגיסטיקה.',
+   bars:[{t:'warm',c:[17,18]},{t:'reg',c:[18,20]},{t:'run',c:[21,24]}]},
+
+  /* ---- FINANCE ---- */
+  {p:'fin', n:'חשבוניות ישראל וספרים דיגיטליים', h:25, price:'3,200 / 2,400 ₪', who:'כל עוסק מורשה וכל מנהלת חשבונות',
+   hook:'הסף ירד ל־5,000 ₪. חשבונית בלי מספר הקצאה = הלקוח לא מקזז מע״מ ולא משלם בזמן.',
+   bars:[{t:'warm',c:[2,2]},{t:'reg',c:[3,3]},{t:'run',c:[4,5],l:'פיילוט'},
+         {t:'reg',c:[7,8]},{t:'run',c:[9,10],l:'מחזור ב׳'},
+         {t:'reg',c:[13,14]},{t:'run',c:[15,16],l:'מחזור ג׳'}]},
+
+  {p:'fin', n:'שליטה בתזרים ורווחיות', h:30, price:'3,900 / 2,900 ₪', who:'בעל עסק שרווחי על הנייר ונחנק בבנק',
+   hook:'עסק רווחי קורס מתזרים, לא מהפסד. תחזית 12 חודשים ותמחור מחדש — נבנים בכיתה.',
+   bars:[{t:'warm',c:[6,7]},{t:'reg',c:[7,8]},{t:'run',c:[9,12],l:'מחזור א׳'},
+         {t:'reg',c:[17,19]},{t:'run',c:[20,23],l:'מחזור ב׳'}]},
+
+  {p:'fin', n:'תיקון 13 והגנת מידע בעסק', h:25, price:'3,200 / 2,400 ₪', who:'כל עסק שמחזיק רשימת לקוחות',
+   hook:'האכיפה עברה למנהלית — קנסות בלי בית משפט. יוצאים עם מדיניות פרטיות ונוהל אבטחה חתומים.',
+   bars:[{t:'warm',c:[11,12]},{t:'reg',c:[12,13]},{t:'run',c:[14,16]}]},
+
+  {p:'fin', n:'מכרזים ורכש ממשלתי לעסקים קטנים', h:40, price:'4,900 / 3,700 ₪', who:'ספק שירות, קבלן, יצרן',
+   hook:'לקוח אחד שמשלם בזמן במשך שלוש שנים. מאיתור מכרז ועד הגשה — כולל הגשה אמיתית.',
+   bars:[{t:'warm',c:[11,12]},{t:'reg',c:[12,14]},{t:'run',c:[15,19]}]},
+
+  /* ---- MGMT ---- */
+  {p:'mgmt', n:'ניהול צוות למנהלים חדשים', h:30, price:'3,900 / 2,900 ₪', who:'מנהל שצמח מתוך הצוות',
+   hook:'קידמתם את העובד הכי טוב והוא נשבר. שיחות משוב, האצלה ויעדים — לשכבת הניהול הראשונה.',
+   bars:[{t:'warm',c:[7,8]},{t:'reg',c:[8,9]},{t:'run',c:[10,13]}]},
+
+  {p:'mgmt', n:'גיוס, שימור ותמחור עובדים', h:25, price:'3,200 / 2,400 ₪', who:'עסק של 5–50 עובדים בלי משאבי אנוש',
+   hook:'עזיבה של עובד ותיק עולה חצי משכורת שנתית. מודעה, ראיון, מבנה שכר ותוכנית שימור.',
+   bars:[{t:'warm',c:[18,19]},{t:'reg',c:[19,21]},{t:'run',c:[21,23]}]},
+
+  {p:'mgmt', n:'סייבר והגנה בסיסית לעסק', h:25, price:'3,200 / 2,400 ₪', who:'בעל עסק, מנהל IT במיקור חוץ',
+   hook:'כופרה סוגרת עסק קטן בשבוע. גיבוי, הרשאות, פישינג ותוכנית תגובה לאירוע.',
+   bars:[{t:'warm',c:[11,12]},{t:'reg',c:[12,13]},{t:'run',c:[14,16]}]},
+];
+
+function buildLane(pillar, mount){
+  const host = document.getElementById(mount);
+  COURSES.filter(c=>c.p===pillar).forEach(c=>{
+    const row = document.createElement('div');
+    row.className = 'grow';
+    const color = PILLARS[pillar];
+
+    const nm = document.createElement('div');
+    nm.className='nm';
+    nm.innerHTML = `<b>${c.n}</b><span><span class="hrs">${c.h} ש׳</span> &nbsp;${c.who}</span>`;
+    row.appendChild(nm);
+
+    // 24 cells
+    const cells=[];
+    for(let i=1;i<=24;i++){
+      const d=document.createElement('div');
+      d.className='cell'+(HOLIDAY.includes(i)?' hol':'')+(QEND.includes(i)?' qend':'');
+      row.appendChild(d); cells.push(d);
+    }
+
+    // bars anchored on their start cell, width spans N cells
+    c.bars.forEach(b=>{
+      const [s,e]=b.c, span=e-s+1;
+      const bar=document.createElement('div');
+      bar.className='bar '+b.t;
+      bar.style.color=color;
+      bar.style.right='3px';
+      bar.style.width=`calc(${span*100}% + ${(span-1)*1}px - 6px)`;
+      if(b.t==='run'){bar.style.background=color;}
+      if(b.t==='reg'){bar.style.background=`repeating-linear-gradient(-45deg, ${color} 0 3px, transparent 3px 7px)`;}
+      bar.textContent = b.l || '';
+      if(b.t==='run' && b.l) bar.style.color='#fff';
+      cells[s-1].appendChild(bar);
+    });
+
+    host.appendChild(row);
+  });
+}
+buildLane('ai','lane-ai');
+buildLane('growth','lane-growth');
+buildLane('fin','lane-fin');
+buildLane('mgmt','lane-mgmt');
+
+/* ---------- cards ---------- */
+const cardCss = `
+<style>
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:14px}
+.card{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--ink);padding:16px 17px 15px;display:flex;flex-direction:column}
+.card h3{font-family:"Heebo",sans-serif;font-weight:800;font-size:16px;line-height:1.25;margin-bottom:9px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.tag{font-family:"Heebo",sans-serif;font-size:11px;font-weight:700;padding:2px 8px;border-radius:2px;background:#E7E2D6;color:var(--ink)}
+.tag.price{background:var(--ink);color:var(--paper-2)}
+.card .hook{font-size:14px;line-height:1.5;flex:1}
+.card .who{font-size:12px;color:var(--ink-3);margin-top:11px;padding-top:9px;border-top:1px solid var(--line)}
+.note{background:var(--paper-2);border:1px solid var(--line);border-right:4px solid var(--brass);padding:17px 19px;font-size:14.5px;line-height:1.65}
+.note + .note{margin-top:12px}
+.note b{font-family:"Heebo",sans-serif;font-weight:800}
+@media print{.scroller{overflow:visible}body{background:#fff}}
+</style>`;
+document.head.insertAdjacentHTML('beforeend', cardCss);
+
+const PNAME={ai:'AI ואוטומציה',growth:'צמיחה ומכירות',fin:'כספים ורגולציה',mgmt:'ניהול ואנשים'};
+document.getElementById('cards').innerHTML =
+ '<div class="cards">' + COURSES.map(c=>`
+  <div class="card" style="border-top-color:${PILLARS[c.p]}">
+    <h3>${c.n}</h3>
+    <div class="meta">
+      <span class="tag" style="background:${PILLARS[c.p]};color:#fff">${PNAME[c.p]}</span>
+      <span class="tag">${c.h} שעות</span>
+      <span class="tag price">${c.price}</span>
+    </div>
+    <div class="hook">${c.hook}</div>
+    <div class="who">קהל: ${c.who}</div>
+  </div>`).join('') + '</div>';
+
+document.getElementById('org').innerHTML = `
+<div class="note"><b>הכשרה סגורה במקום העבודה.</b> כל אחד מ־14 הקורסים ניתן להעברה כקבוצה סגורה אצל הלקוח, מ־12 משתתפים, בהתאמת תכנים לענף ולנתוני העסק. תמחור מוצע: 18,000–34,000 ₪ לקבוצה לפי היקף שעות, כולל אפיון מקדים ומפגש סיכום עם ההנהלה. זו נקודת הכניסה לעסקים הגדולים בהתאגדות ומקור ההכנסה בעל השוליים הגבוהים ביותר במסלול.</div>
+<div class="note"><b>גשר למסלולי המימון הממשלתיים.</b> מסלול "כיתה בעבודה" של זרוע העבודה דורש תוכנית לימודים של 100 שעות ומעלה, כך שהקורסים האלה בהיקפם הנוכחי אינם עומדים בסף. ההזדמנות: לחבר שניים־שלושה קורסים לחבילה של 100+ שעות עבור מעסיק בודד ולהגיש כמסלול מסובסד. מומלץ לבחון זאת מול המנהלת לפני גל 2.</div>`;
+
+document.getElementById('assume').innerHTML = `
+<div class="note">המחירים הם הנחת עבודה בלבד — מחיר מלא מול מחיר חבר התאגדות, בפער של כ־25%. מבוסס על תמחור של 120–130 ₪ לשעת לימוד בקבוצה פתוחה. יש לאמת מול מודל העלויות שלנו לפני פרסום.</div>
+<div class="note">גודל קבוצה מונח: 18–25 משתתפים בקבוצה פתוחה. נקודת האיזון מחייבת בדיקה מול עלות מרצה וכיתה בכל אחד מארבעת הקמפוסים.</div>
+<div class="note">הגאנט מניח העברה היברידית — מפגש פתיחה וסיום פרונטלי בקמפוס, השאר בזום בערבים. זה מה שמאפשר לבעל עסק להירשם בכלל, וזה גם מה שמאפשר קבוצה ארצית אחת במקום ארבע אזוריות.</div>
+<div class="note">חלונות החגים מסומנים על הגאנט. אין להתחיל קורס בין תחילת ספטמבר לסוכות, ואין לפתוח הרשמה בשבועיים שלפני פסח. פתיחת גל 1 באוקטובר היא אחרי סוכות במכוון.</div>`;
+</script>
+</body>
+</html>
